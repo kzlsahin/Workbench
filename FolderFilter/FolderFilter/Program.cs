@@ -19,7 +19,15 @@ else if(args.Length == 1)
 
 string dir_filterFolder = args[0];
 string dir_refFolder = args[1];
-string dir_outFolder = args[2];
+string dir_outFolder = String.Empty;
+if(args.Length == 2)
+{
+    dir_outFolder = dir_filterFolder + "Filtered";
+}
+else
+{
+    dir_outFolder = args[2];
+}
 
 if (!Directory.Exists(dir_filterFolder))
 {
@@ -76,11 +84,11 @@ static void PrintHelp()
 {
     Console.WriteLine("- Help -");
     Console.WriteLine("this command creates a new folder and copies files in target folder to that folder where a file with the same name does not exist in reference folder.");
-    Console.WriteLine("________________________________________");
-    Console.WriteLine("usage: [path of this exe] arg1 arg2 arg3");
-    Console.WriteLine("- args1 : path of target folder from which files will be coppied to destination folder");
-    Console.WriteLine("- args2 : path of reference folder. The files of target folder that the reference folder has the same name with, will be excluded from the copy");
-    Console.WriteLine("- args2 : path of output folder to which files will be copied");
+    Console.WriteLine("----------------------------------------------------------");
+    Console.WriteLine("usage: [path of this exe] filterFolder RefFolder [output]");
+    Console.WriteLine("- filterFolder : path of folder to be filtered from which files will be coppied to destination folder");
+    Console.WriteLine("- RefFolder : path of reference folder. The files of target folder that the reference folder has the same name with, will be excluded from the copy");
+    Console.WriteLine("- output : (optional)path of output folder to which files will be copied");
     Console.WriteLine("----------------------------------------------------------");
 }
 
