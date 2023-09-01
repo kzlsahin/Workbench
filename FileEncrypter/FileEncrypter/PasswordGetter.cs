@@ -32,8 +32,8 @@ namespace FileHasher
         }
         public static int GetKey(out Byte[] key, int minLength, int maxLength, Encoding enc)
         {
-            Console.WriteLine("enter your pass");
-            Console.WriteLine($"must be {minLength} long minimum and {maxLength} long maximum");
+            Console.WriteLine(">enter your password");
+            Console.WriteLine($">must be {minLength} long minimum and {maxLength} long maximum");
             string pass;
             while (true)
             {
@@ -45,15 +45,12 @@ namespace FileHasher
                         return SUCCESS;
                     }
                 }
-                if (InputHelpers.RequestYesNo("the keys you ave written are different.\n Do you want to retry?", 'y', 'n'))
-                {
-                    continue;
-                }
-                else
+                if (!InputHelpers.RequestYesNo(">the keys you ave written are different.\n Do you want to retry?", 'y', 'n'))
                 {
                     key = new byte[0];
                     return CANCEL;
                 }
+                Console.WriteLine("\n>enter your password again");
             }
             key = new byte[0];
             return CANCEL;
@@ -62,7 +59,7 @@ namespace FileHasher
         private static bool AskKey(out string key)
         {
             key = Console.ReadLine();
-            Console.WriteLine("please rewrite your pass!");
+            Console.WriteLine("please repeat your pass!");
             string check = Console.ReadLine();
             if (key == check)
             {

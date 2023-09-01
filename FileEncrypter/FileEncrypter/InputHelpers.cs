@@ -15,14 +15,13 @@ namespace FileHasher
 
             char ans = Console.ReadKey().KeyChar;
 
-            while (ans != yes && ans != no)
+            while (true)
             {
+                if (ans == yes) return true;
+                if (ans == no) return false;
                 Console.WriteLine($"Girdiniz yorumlanamadı. Lütfen {yes}/{no} ile cevap veriniz.");
                 ans = Console.ReadKey().KeyChar;
             }
-
-            if (ans == yes) return true;
-            return false;
         }
         static void RequestEntryDouble(string messege, out double userInput)
         {
@@ -42,15 +41,17 @@ namespace FileHasher
             Console.WriteLine("seçeneklerden birisini giriniz.");
             int userInput;
 
-            while (!int.TryParse(Console.ReadLine(), out userInput) || !cases.Contains(userInput))
+            while (true)
             {
+                if(int.TryParse(Console.ReadLine(), out userInput) && cases.Contains(userInput))
+                {
+                    Console.WriteLine($"{userInput} is entered");
+                    return userInput;
+                }
                 Console.Write("lütfen");
                 foreach (int i in cases) Console.Write(", " + i + " ");
                 Console.WriteLine("seçeneklerinden birini giriniz ");
             }
-
-            Console.WriteLine($"{userInput} is entered");
-            return userInput;
         }
 
         public static string GetFileContent(string message, out string path)
@@ -65,8 +66,15 @@ namespace FileHasher
 
                 try
                 {
-                    content = File.ReadAllText(path);
-                    pathOk = true;
+                    if (File.Exists(path))
+                    {
+                        content = File.ReadAllText(path);
+                        pathOk = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("the file doesn't exist");
+                    }
                 }
                 catch (ArgumentException)
                 {
