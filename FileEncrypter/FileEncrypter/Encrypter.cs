@@ -57,10 +57,10 @@ namespace FileHasher
             string directory = Path.GetDirectoryName(path) ?? string.Empty;
             string fileName = Path.GetFileNameWithoutExtension(path);
             string OutputFile = Path.Combine(directory, $"{fileName}_encrypted");
-            using (FileStream fs = File.Open(OutputFile, FileMode.Create))
-            {
-                    fs.Write(encrypted);
-            }
+            //using (FileStream fs = File.Open(OutputFile, FileMode.Create))
+            //{
+            //        fs.Write(encrypted);
+            //}
             string jsonFileName = OutputFile + ".json";
             string str = JsonSerializer.Serialize(encryptedData);
             File.WriteAllText(jsonFileName, str);
