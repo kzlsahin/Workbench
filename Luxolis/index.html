@@ -6,9 +6,18 @@
             box-sizing: border-box;
         }
 
+        html {
+            padding: 0px;
+        }
+
         body {
-            width: 100vw;
-            height: 100vh;
+            position: relative;
+            Top: -0.5vh;
+            Left: -0.5vw;
+            width: 101vw;
+            height: 101vh;
+            padding: 0px;
+            background-color: transparent;
         }
 
         .login-page-container {
@@ -17,7 +26,10 @@
             display: grid;
             place-content: center;
             background-image: url(bg.svg);
+            background-size: 101vw 101vh;
             background-color: #2148C0;
+            padding: 0px;
+            margin: 0px;
         }
 
         svg {
@@ -68,32 +80,65 @@
             font-size: 14px;
             font-style: normal;
             font-weight: 300;
-            color : #FFFFFF;
+            color: #FFFFFF;
             height: 20px;
             padding: 0.5px;
             margin: 0px;
             margin-left: 20px;
         }
 
-        .login-input input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #FFFFFF;
-  opacity: 1; /* Firefox */
-}
+        .login-input input::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #FFFFFF;
+            opacity: 1;
+            /* Firefox */
+        }
 
-.login-input input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #FFFFFF;
-}
+        .login-input input:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #FFFFFF;
+        }
 
-.login-input input::-ms-input-placeholder { /* Microsoft Edge */
-  color: #FFFFFF;
-}
-
+        .login-input input::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #FFFFFF;
+        }
+        .pass-alert {
+            width: 300px;
+            height: 43px;
+            background-color: transparent;
+            Margin : 0px;
+            padding: 2px;
+            color : Red;
+            border : none;
+            text-align:left;
+            font-family: Montserrat;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
         .login-submit-btn {
             width: 300px;
             height: 45px;
             background-color: solid #FFFFFF;
             border-radius: 4px;
-            margin-top: 43px;
+            margin-top: 0px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+        }
+
+        .login-forget-password {
+            background-color: transparent;
+            font-family: Montserrat;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            border : none;
+            color : #FFFFFF;
+            margin-top : 11px;
+            width: 300px;
+            text-align :right;
         }
     </style>
 </Head>
@@ -139,6 +184,9 @@
                 </svg>
                 <input type="text" placeholder="PASSWORD" name="uname" required>
             </div>
+            <p id="pass-alert" class="pass-alert">
+                
+            </p>
             <button class="login-submit-btn">
                 LOGIN
             </button>
@@ -147,5 +195,39 @@
             </button>
         </div>
     </div>
+    <script>
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            let isCombinationsCorrect = true;
+            let alert = Document.GetElementById("pass-alert");
+            // Validate lowercase letters
+            let lowerCaseLetters = /[a-z]/g;
+            if (!myInput.value.match(lowerCaseLetters)) {
+                isCombinationsCorrect &= false;
+            }
 
+            // Validate capital letters
+            let upperCaseLetters = /[A-Z]/g;
+            if (!myInput.value.match(upperCaseLetters)) {
+                isCombinationsCorrect &= false;
+            }
+
+            // Validate numbers
+            let numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                isCombinationsCorrect &= false;
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                isCombinationsCorrect &= false;
+            }
+            if(isCombinationsCorrect){
+                alert.Text = "";
+            }
+            else{
+                alert.Text = "Wrong combination";
+            }
+        }
+    </script>
 </body>
