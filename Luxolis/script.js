@@ -36,7 +36,7 @@ const CloseAlertText = () => {
 const isPassCombinationValid = (pass) => {
     // Validate lowercase letters
     let lowerCaseLetters = /[a-zA-Z]/g;
-    let specialCharacters = /[#?!@$%^&*\-\]\[]/g;
+    let specialCharacters = /[#?!@$%^&*\-\]\[\.\,]/g;
     let numbers = /[0-9]/g;
 
 
