@@ -1,233 +1,49 @@
 <!DOCTYPE html>
 
 <Head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            padding: 0px;
-        }
-
-        body {
-            position: relative;
-            Top: -0.5vh;
-            Left: -0.5vw;
-            width: 101vw;
-            height: 101vh;
-            padding: 0px;
-            background-color: transparent;
-        }
-
-        .login-page-container {
-            width: 100vw;
-            height: 100vh;
-            display: grid;
-            place-content: center;
-            background-image: url(bg.svg);
-            background-size: 101vw 101vh;
-            background-color: #2148C0;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        svg {
-            stroke: #FFFFFF;
-        }
-
-        .login-box {
-            color: #FFFFFF;
-            width: 300px;
-            height: 398px;
-            display: flex;
-            flex-direction: column;
-            justify-content: Top;
-            align-items: center;
-        }
-
-        .loging-image {
-            display: block;
-            margin-bottom: 6px;
-            width: 109px;
-            height: 97px;
-            Margin-Top: 0px;
-            margin-bottom: 51px;
-        }
-
-        .login-input {
-            width: 300px;
-            height: 45px;
-            padding: 12px;
-            border: solid 1px #FFFFFF;
-            border-radius: 4px;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: row;
-            justify-content: left;
-            align-items: center;
-        }
-
-        login-input svg {
-            margin: 0px;
-        }
-
-        .login-input input {
-            background-color: transparent;
-            border: none;
-            outline: none;
-            font-family: Montserrat;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 300;
-            color: #FFFFFF;
-            height: 20px;
-            padding: 0.5px;
-            margin: 0px;
-            margin-left: 20px;
-        }
-
-        .login-input input::placeholder {
-            /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: #FFFFFF;
-            opacity: 1;
-            /* Firefox */
-        }
-
-        .login-input input:-ms-input-placeholder {
-            /* Internet Explorer 10-11 */
-            color: #FFFFFF;
-        }
-
-        .login-input input::-ms-input-placeholder {
-            /* Microsoft Edge */
-            color: #FFFFFF;
-        }
-        .pass-alert {
-            width: 300px;
-            height: 43px;
-            background-color: transparent;
-            Margin : 0px;
-            padding: 2px;
-            color : Red;
-            border : none;
-            text-align:left;
-            font-family: Montserrat;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-        }
-        .login-submit-btn {
-            width: 300px;
-            height: 45px;
-            background-color: solid #FFFFFF;
-            border-radius: 4px;
-            margin-top: 0px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
-        }
-
-        .login-forget-password {
-            background-color: transparent;
-            font-family: Montserrat;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            border : none;
-            color : #FFFFFF;
-            margin-top : 11px;
-            width: 300px;
-            text-align :right;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </Head>
 
 <body>
     <div class="login-page-container">
+        <!--<object class="login-background" data="bg.svg"> </object>-->
         <div class="login-box">
             <svg class="loging-image" width="124" height="102" viewBox="0 0 124 102" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M2 2H15.6523C17.8311 2 19.7535 3.42651 20.3871 5.51343L41.7596 75.9005C42.3932 77.9874 44.3156 79.4139 46.4942 79.4139H94.6487C96.9129 79.4139 98.8889 77.8753 99.4455 75.6779L108.068 41.6561C108.624 39.4586 110.6 37.9201 112.865 37.9201H121.386"
-                    stroke="white" stroke-width="3.75648" stroke-linecap="round" />
-                <path
-                    d="M72.5933 21.7428C71.8686 21.0174 70.6937 21.0174 69.969 21.7428L58.159 33.5667C57.4344 34.2923 57.4344 35.4686 58.159 36.1942C58.8837 36.9197 60.0588 36.9197 60.7835 36.1942L71.2811 25.6842L81.7788 36.1942C82.5035 36.9197 83.6785 36.9197 84.4032 36.1942C85.1279 35.4686 85.1279 34.2923 84.4032 33.5667L72.5933 21.7428ZM73.1369 57.7381V23.0566H69.4254V57.7381H73.1369Z"
-                    fill="white" />
-                <path
-                    d="M58.2909 99.8512C61.3656 99.8512 63.8581 97.3557 63.8581 94.2774C63.8581 91.1991 61.3656 88.7036 58.2909 88.7036C55.2162 88.7036 52.7236 91.1991 52.7236 94.2774C52.7236 97.3557 55.2162 99.8512 58.2909 99.8512Z"
-                    stroke="white" stroke-width="3.00518" />
-                <path
-                    d="M85.5085 99.8512C88.5832 99.8512 91.0757 97.3557 91.0757 94.2774C91.0757 91.1991 88.5832 88.7036 85.5085 88.7036C82.4338 88.7036 79.9412 91.1991 79.9412 94.2774C79.9412 97.3557 82.4338 99.8512 85.5085 99.8512Z"
-                    stroke="white" stroke-width="3.00518" />
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2H15.6523C17.8311 2 19.7535 3.42651 20.3871 5.51343L41.7596 75.9005C42.3932 77.9874 44.3156 79.4139 46.4942 79.4139H94.6487C96.9129 79.4139 98.8889 77.8753 99.4455 75.6779L108.068 41.6561C108.624 39.4586 110.6 37.9201 112.865 37.9201H121.386"
+                      stroke="white" stroke-width="3.75648" stroke-linecap="round" />
+                <path d="M72.5933 21.7428C71.8686 21.0174 70.6937 21.0174 69.969 21.7428L58.159 33.5667C57.4344 34.2923 57.4344 35.4686 58.159 36.1942C58.8837 36.9197 60.0588 36.9197 60.7835 36.1942L71.2811 25.6842L81.7788 36.1942C82.5035 36.9197 83.6785 36.9197 84.4032 36.1942C85.1279 35.4686 85.1279 34.2923 84.4032 33.5667L72.5933 21.7428ZM73.1369 57.7381V23.0566H69.4254V57.7381H73.1369Z"
+                      fill="white" />
+                <path d="M58.2909 99.8512C61.3656 99.8512 63.8581 97.3557 63.8581 94.2774C63.8581 91.1991 61.3656 88.7036 58.2909 88.7036C55.2162 88.7036 52.7236 91.1991 52.7236 94.2774C52.7236 97.3557 55.2162 99.8512 58.2909 99.8512Z"
+                      stroke="white" stroke-width="3.00518" />
+                <path d="M85.5085 99.8512C88.5832 99.8512 91.0757 97.3557 91.0757 94.2774C91.0757 91.1991 88.5832 88.7036 85.5085 88.7036C82.4338 88.7036 79.9412 91.1991 79.9412 94.2774C79.9412 97.3557 82.4338 99.8512 85.5085 99.8512Z"
+                      stroke="white" stroke-width="3.00518" />
             </svg>
 
             <div class="login-input username">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M16.6667 17.5V15.8333C16.6667 14.9493 16.3155 14.1014 15.6903 13.4763C15.0652 12.8512 14.2174 12.5 13.3333 12.5H6.66666C5.78261 12.5 4.93476 12.8512 4.30964 13.4763C3.68452 14.1014 3.33333 14.9493 3.33333 15.8333V17.5"
-                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M10 9.16667C11.841 9.16667 13.3333 7.67428 13.3333 5.83333C13.3333 3.99238 11.841 2.5 10 2.5C8.15906 2.5 6.66667 3.99238 6.66667 5.83333C6.66667 7.67428 8.15906 9.16667 10 9.16667Z"
-                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <input type="text" placeholder="USERNAME" name="uname" required>
+                <object class="user-icon" data="user-icon.svg"> </object>
+                <input type="text" placeholder="USERNAME" name="uname" autofocus required>
             </div>
+
             <div class="login-input password">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M16.6667 17.5V15.8333C16.6667 14.9493 16.3155 14.1014 15.6903 13.4763C15.0652 12.8512 14.2174 12.5 13.3333 12.5H6.66666C5.78261 12.5 4.93476 12.8512 4.30964 13.4763C3.68452 14.1014 3.33333 14.9493 3.33333 15.8333V17.5"
-                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M10 9.16667C11.841 9.16667 13.3333 7.67428 13.3333 5.83333C13.3333 3.99238 11.841 2.5 10 2.5C8.15906 2.5 6.66667 3.99238 6.66667 5.83333C6.66667 7.67428 8.15906 9.16667 10 9.16667Z"
-                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <input type="text" placeholder="PASSWORD" name="uname" required>
+                <object class="user-icon" data="user-icon.svg"> </object>
+                <input id="login-input-field" type="text" placeholder="PASSWORD" name="uname" autofocus required>
             </div>
+
             <p id="pass-alert" class="pass-alert">
-                
             </p>
+
             <button class="login-submit-btn">
                 LOGIN
             </button>
-            <button class="login-forget-password">
-                Forgot password?
-            </button>
+
+            <div class="login-forget-password">
+                <div id="forget-pass-text">Forgot password?</div>
+            </div>
+
         </div>
     </div>
-    <script>
-        // When the user starts to type something inside the password field
-        myInput.onkeyup = function () {
-            let isCombinationsCorrect = true;
-            let alert = Document.GetElementById("pass-alert");
-            // Validate lowercase letters
-            let lowerCaseLetters = /[a-z]/g;
-            if (!myInput.value.match(lowerCaseLetters)) {
-                isCombinationsCorrect &= false;
-            }
-
-            // Validate capital letters
-            let upperCaseLetters = /[A-Z]/g;
-            if (!myInput.value.match(upperCaseLetters)) {
-                isCombinationsCorrect &= false;
-            }
-
-            // Validate numbers
-            let numbers = /[0-9]/g;
-            if (myInput.value.match(numbers)) {
-                isCombinationsCorrect &= false;
-            }
-
-            // Validate length
-            if (myInput.value.length >= 8) {
-                isCombinationsCorrect &= false;
-            }
-            if(isCombinationsCorrect){
-                alert.Text = "";
-            }
-            else{
-                alert.Text = "Wrong combination";
-            }
-        }
+    <script type="text/javascript" src="script.js">
+       
     </script>
 </body>
