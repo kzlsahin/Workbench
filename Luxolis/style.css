@@ -112,9 +112,9 @@ svg {
 
 .pass-alert {
     width: 300px;
-    height: 43px;
+    height: 41px;
     background-color: transparent;
-    Margin: 0px;
+    Margin: 1px;
     padding: 2px;
     color: Red;
     border: none;
@@ -143,11 +143,11 @@ svg {
 }
 
 #forget-pass-text {
+    display: block;
     float :right;
     text-align: right;
     width :fit-content;
     background-color: transparent;
-    display: inline-block;
     cursor: pointer;
     font-family: Montserrat;
     font-size: 16px;
@@ -156,4 +156,28 @@ svg {
     line-height: normal;
     border: none;
     color: #FFFFFF;
+}
+
+.wrong-password-popup {
+    visibility: hidden;
+    display : block;
+    position : fixed;
+    background-color : transparent;
+    width : 100vw;
+    height : 100vh;
+}
+
+.wrong-password-form {
+    display: block;
+    position: relative;
+    width : 20em;
+    top: 40vh;
+    margin: auto;
+    background-color: #FFFFFF;
+    color : #2148C0;
+    text-align: center;
+    align-content: center;
+    padding: 1em;
+    border: solid 1px #2148C0;
+    border-radius: 1em;
 }

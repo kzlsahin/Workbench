@@ -22,28 +22,32 @@
 
             <div class="login-input username">
                 <object class="user-icon" data="user-icon.svg"> </object>
-                <input type="text" placeholder="USERNAME" name="uname" autofocus required>
+                <input id="login-username-field" type="text" placeholder="USERNAME" name="uname" autofocus required>
             </div>
 
             <div class="login-input password">
                 <object class="user-icon" data="user-icon.svg"> </object>
-                <input id="login-input-field" type="text" placeholder="PASSWORD" name="uname" autofocus required>
+                <input id="login-password-field" type="text" placeholder="PASSWORD" name="uname" autofocus required>
             </div>
 
             <p id="pass-alert" class="pass-alert">
             </p>
 
-            <button class="login-submit-btn">
+            <button id="login-submit-btn" class="login-submit-btn">
                 LOGIN
             </button>
-
-            <div class="login-forget-password">
+            <div id="login-forget-password" class="login-forget-password">
                 <div id="forget-pass-text">Forgot password?</div>
             </div>
-
+        </div>        
+        <div id="wrong-password-popup" class="wrong-password-popup">
+            <div class="wrong-password-form">
+                <p>the provided password is wrong !</p>
+                <button>OK</button>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="script.js">
-       
+
     </script>
 </body>
