@@ -190,3 +190,12 @@ svg {
     width: 5em;
     text-align: center;
  }
+
+ @media only screen and (max-width: 768px){
+    .login-page-container {
+        background-image: url(bg-mobile.svg);
+        background-color: #2148C0;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+ }
