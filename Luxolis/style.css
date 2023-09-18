@@ -166,7 +166,7 @@ svg {
     visibility: hidden;
     display : block;
     position : fixed;
-    background-color : transparent;
+    background-color : #AAAAAA44;
     width : 100vw;
     height : 100vh;
 }
@@ -185,3 +185,8 @@ svg {
     border: solid 1px #2148C0;
     border-radius: 1em;
 }
+.wrong-password-form button {
+    padding : 0.3em;
+    width: 5em;
+    text-align: center;
+ }
