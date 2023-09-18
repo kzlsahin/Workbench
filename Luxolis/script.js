@@ -5,21 +5,21 @@ window.addEventListener("load", () => {
     // When the user starts to type something inside the password field
     passwordInputField.onkeyup = function () {
         let field = document.getElementById("login-input-field");
-        let isValid = isPassCombinationValid(field.Value);
+        let isValid = isPassCombinationValid(field.value);
         let alertText = document.getElementById("pass-alert");
         if (isValid) {
-            alertText.Text = "";
+            alertText.innerText = "";
             console.log("valid combination");
         }
         else {
-            alertText.Text = "Wrong combination";
+            alertText.innerText = "Wrong combination";
             console.log("invalid combination");
         }
     }
 });
 
 const isPassCombinationValid = (pass) => {
-    let isCombinationsCorrect = true;
+    console.log(pass)
     // Validate lowercase letters
     let lowerCaseLetters = /[a-zA-Z]/g;
     let specialCharacters = /[#?!@$%^&*\-\]\[]/g;
@@ -27,19 +27,19 @@ const isPassCombinationValid = (pass) => {
 
 
     if (!pass.match(lowerCaseLetters)) {
-        isCombinationsCorrect &= false;
+        return false;
     }
     // Validate special characters
     if (!pass.match(specialCharacters)) {
-        isCombinationsCorrect &= false;
+        return false;
     }
     // Validate numbers
     if (!pass.match(numbers)) {
-        isCombinationsCorrect &= false;
+        return false;
     }
     // Validate length
-    if (pass.length >= 8) {
-        isCombinationsCorrect &= false;
+    if (pass.length < 8) {
+        return false;
     }
-    return isCombinationsCorrect;
+    return true;
 };
