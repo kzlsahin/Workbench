@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileEncrypter", "FileEncrypter\FileEncrypter.csproj", "{1A9FAD2E-DCBB-4CAC-ACEE-F2B9C652BD3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncrypter_Desktop", "FileEncrypter_Desktop\FileEncrypter_Desktop.csproj", "{7D5C4E79-2E23-47C6-800E-5B5FA12FB961}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A9FAD2E-DCBB-4CAC-ACEE-F2B9C652BD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A9FAD2E-DCBB-4CAC-ACEE-F2B9C652BD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A9FAD2E-DCBB-4CAC-ACEE-F2B9C652BD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5C4E79-2E23-47C6-800E-5B5FA12FB961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5C4E79-2E23-47C6-800E-5B5FA12FB961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5C4E79-2E23-47C6-800E-5B5FA12FB961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5C4E79-2E23-47C6-800E-5B5FA12FB961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

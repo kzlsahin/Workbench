@@ -19,7 +19,6 @@ switch (opt)
         Decrypter d = new Decrypter();
         d.Run();
         break;
-
 }
 
 
