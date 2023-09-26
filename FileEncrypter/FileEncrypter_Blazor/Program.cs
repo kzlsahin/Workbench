@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Encrypter>();
+builder.Services.AddSingleton<Decrypter>();
 
 var app = builder.Build();
 

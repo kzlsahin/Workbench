@@ -10,6 +10,25 @@ namespace FileHasher
 {
     internal static class InputHelpers
     {
+        internal static Byte[] CreateKey16(byte[] pass, string salt, Encoding encoding)
+        {
+            byte[] key = new byte[16];
+            byte[] saltBytes = encoding.GetBytes(salt);
+            int j = 0;
+            int passLength = pass.Length;
+            for (int i = 0; i < 16; i++)
+            {
+                if (i < passLength)
+                {
+                    key[i] = pass[i];
+                }
+                else
+                {
+                    key[i] = saltBytes[j++];
+                }
+            }
+            return key;
+        }
         public static string GetFileContent(string path)
         {
             string content = string.Empty;

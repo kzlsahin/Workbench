@@ -29,7 +29,7 @@ namespace FileHasher
 
             string salt = "jnaljfzh";
             byte[] encrypted;
-            byte[] key = CreateKey16(password, salt, encoding);
+            byte[] key = InputHelpers.CreateKey16(password, salt, encoding);
 
             EncryptedData encryptedData = new EncryptedData();
             // Create an Aes object
@@ -67,24 +67,6 @@ namespace FileHasher
             MemoryStream stream = new MemoryStream(encoding.GetBytes(str));
             return stream;
         }
-        private static Byte[] CreateKey16(byte[] pass, string salt, Encoding encoding)
-        {
-            byte[] key = new byte[16];
-            byte[] saltBytes = encoding.GetBytes(salt);
-            int j = 0;
-            int passLength = pass.Length;
-            for (int i = 0; i < 16; i++)
-            {
-                if (i < passLength)
-                {
-                    key[i] = pass[i];
-                }
-                else
-                {
-                    key[i] = saltBytes[j++];
-                }
-            }
-            return key;
-        }
+        
     }
 }

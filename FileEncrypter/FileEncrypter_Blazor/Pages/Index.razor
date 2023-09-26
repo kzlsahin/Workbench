@@ -5,9 +5,15 @@
 @using FileHasher
 @inject IJSRuntime JS
 @inject Encrypter encrypter
+@inject Decrypter decrypter
 
 <div class="encryption-frame">
-<textarea @bind="promptText"></textarea>
+
+
+        <h1>File Encrypter</h1>
+        <p>by kzlsahin</p>
+    
+<p @bind="promptText"></p>
     <div class="file-selection-form">
         <div class="input-group mb-3">
             <InputFile type="file" class="form-control" id="inputGroupFile02" OnChange="@LoadFiles" multiple />
@@ -26,6 +32,7 @@
         <input name="password-check" id="password-check" type="password" value="@password_check" @onchange="OnPassCheckChange" placeholder="REWRITE" />
         <p id="warning-text" class="warning-text">@warning</p>
         <button @onclick="EncrypteFile">Encrypt</button>
+        <button @onclick="DecrypteFile">Decrypt</button>
     </div>
 </div>
 
@@ -46,12 +53,14 @@
         flex-wrap: nowrap;
     }
 
-        .encryption-frame textarea {
+        .encryption-frame p {
             background-color: transparent;
             color: #FFFFFF;
             width: 80%;
             max-width: 40em;
-            height: 12em;
+            min-height:3em;
+            height: 3vh;
+            border: none;
         }
 
     .file-selection-form {
@@ -64,7 +73,7 @@
 
 
     .password-form {
-        margin-top: 2em;
+        margin-top: 3vh;
         margin: auto;
         width: 100%;
         display: flex;
@@ -75,15 +84,17 @@
     }
 
         .password-form label {
-            margin-top: 1em;
+            margin-top: 1vh;
             width: 80vw;
-            max-width: 30em;
+            max-width: 25em;
         }
 
         .password-form input {
             width: 80vw;
-            margin-top: 0.5em;
-            max-width: 30em;
+            margin-top: 1vh;
+            max-width: 25em;
+            padding: 0.4em;
+            border-radius: 0.5em;
         }
 
             .password-form input::placeholder {
@@ -92,17 +103,25 @@
 
         .password-form .warning-text {
             width: 80vw;
-            margin-top: 0.5em;
-            max-width: 30em;
-            height: 1em;
+            max-width: 25em;
+            height:1em;
             text-align: left;
+            color: orangered;
         }
 
         .password-form button {
-            margin-top: 2em;
+            margin-top: 1vh;
+            margin-top: 2vh;
             width: 80vw;
-            max-width: 30em;
+            max-width: 25em;
+            padding: 0.4em;
+            border-radius: 0.5em;
         }
+
+            .password-form button:hover {
+                background-color: gainsboro;
+            }
+
 </style>
 @code {
     string? password;
@@ -170,6 +189,26 @@
 
         promptText += "> encrypting...\n";
         _stream = encrypter.Run(ref fileName, content, password);
+        promptText += "> encrypted...\n";
+
+        DownloadFileFromStream();
+    }
+    protected async void DecrypteFile()
+    {
+        warning = "";
+        if (!CheckPasswords(password, password_check))
+        {
+            return;
+        }
+        string content = await GetContent();
+        if (String.IsNullOrEmpty(content))
+        {
+            promptText += "> no file is laoded.\n";
+            return;
+        }
+
+        promptText += "> encrypting...\n";
+        _stream = decrypter.Run(ref fileName, content, password);
         promptText += "> encrypted...\n";
 
         DownloadFileFromStream();
