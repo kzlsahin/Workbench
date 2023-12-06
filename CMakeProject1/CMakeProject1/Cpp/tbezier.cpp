@@ -2,6 +2,7 @@
 //
 
 #include "CMakeProject1.h"
+#include "bezier.h"
 #include <cstdio>
 
 using namespace std;

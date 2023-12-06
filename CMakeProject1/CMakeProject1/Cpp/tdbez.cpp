@@ -11,7 +11,7 @@
 */
 #include <stdio.h>
 #include <cstdio>
-#include "dbezier.h"
+#include "..\HeaderFiles\dbezier.h"
 void tdbez_test() {
 
     int i;

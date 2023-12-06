@@ -3,7 +3,9 @@
 #
 
 # Add source to this project's executable.
-add_executable (CMakeProject1 "CMakeProject1.cpp" "bezier.cpp" "CMakeProject1.h" "bezier.h"  "dbezier.cpp" "dbezier.h" "tbezier.h" "tbezier.cpp" "tdbez.cpp" "tdbez.h")
+include_directories("HeaderFiles")
+include_directories("Cpp")
+add_executable (CMakeProject1 "CMakeProject1.cpp" "Cpp/bezier.cpp" "HeaderFiles/CMakeProject1.h" "HeaderFiles/bezier.h"  "Cpp/dbezier.cpp" "HeaderFiles/dbezier.h" "HeaderFiles/tbezier.h" "Cpp/tbezier.cpp" "Cpp/tdbez.cpp" "HeaderFiles/tdbez.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeProject1 PROPERTY CXX_STANDARD 20)

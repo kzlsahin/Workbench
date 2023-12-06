@@ -5,9 +5,9 @@
 
 #include <iostream>
 #include <cstdio>
-#include "bezier.h"
-#include "tbezier.h"
-#include "dbezier.h"
-#include "tdbez.h"
+#include "HeaderFiles/bezier.h"
+#include "HeaderFiles/tbezier.h"
+#include "HeaderFiles/dbezier.h"
+#include "HeaderFiles/tdbez.h"
 
 // TODO: Reference additional headers your program requires here.
