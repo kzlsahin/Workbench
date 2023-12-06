@@ -13,3 +13,6 @@
 29	510	7235700375650388	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/bezier.cpp.obj	5941365d667e072b
 64	511	7235700375650388	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/tdbez.cpp.obj	640204dddbd36efb
 16	907	7235709745089479	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/tbezier.cpp.obj	bbef6a9e4020b00f
+22	349	7235728377338155	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/knot.cpp.obj	a3bea8fa025f2328
+4	154	7235728584688764	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/tbasis.cpp.obj	6ddbcc57aa473963
+155	719	7235728589532907	CMakeProject1/CMakeProject1.exe	75d6fddb12634b96

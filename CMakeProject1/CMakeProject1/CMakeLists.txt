@@ -27,7 +27,7 @@ CMakeProject1
 "Cpp/bezier.cpp" 
 "Cpp/basis.cpp" 
 "Cpp/tbasis.cpp"
-)
+ "Cpp/knot.cpp" "HeaderFiles/knot.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeProject1 PROPERTY CXX_STANDARD 20)

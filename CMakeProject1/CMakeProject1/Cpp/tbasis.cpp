@@ -11,7 +11,8 @@
 */
 
 #include 	<stdio.h>
-#include "basis.cpp"
+#include "basis.h"
+#include "knot.h"
 
 void tbasis_test()
 {
