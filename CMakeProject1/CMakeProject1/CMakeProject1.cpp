@@ -9,5 +9,5 @@
 using namespace std;
 
 void main() {
-	tdbez_test();
+	tbasis_test();
 }
