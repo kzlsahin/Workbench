@@ -1,7 +1,7 @@
 # ninja log v5
 24	348	7235664600040524	CMakeProject1/CMakeFiles/CMakeProject1.dir/bezier.c.obj	f3b3e0eb082589f2
 3	895	7235709744933213	CMakeProject1/CMakeFiles/CMakeProject1.dir/CMakeProject1.cpp.obj	bf6712952d5b0a9f
-735	1383	7235738988400343	CMakeProject1/CMakeProject1.exe	ed2e5a6f7801a27e
+1143	1714	7235742194825693	CMakeProject1/CMakeProject1.exe	cf33dbd4e1db81d7
 4	272	7235661331760382	CMakeProject1/CMakeFiles/CMakeProject1.dir/tbezier.c.obj	d049174534b08f03
 4	159	7235684290506397	CMakeProject1/CMakeFiles/CMakeProject1.dir/bezier.cpp.obj	91c8798204d1431f
 39	397	7235678827855516	CMakeProject1/CMakeFiles/CMakeProject1.dir/tdbez.c.obj	164ab35b69155927
@@ -10,6 +10,7 @@
 15	900	7235685179335950	CMakeProject1/CMakeFiles/CMakeProject1.dir/tbezier.cpp.obj	4c8a4941b47623d4
 3	153	7235686586217053	CMakeProject1/CMakeFiles/CMakeProject1.dir/tdbez.cpp.obj	3f42cfb8585c2ee2
 41	511	7235700375650388	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/dbezier.cpp.obj	465c6566cc5ccd72
+84	569	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/tbasis.cpp.obj	79b0c874192fbfb1
 29	510	7235700375650388	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/bezier.cpp.obj	5941365d667e072b
 49	734	7235738982476572	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/dbasis.cpp.obj	b574185c3ec8e02a
 64	511	7235700375650388	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/tdbez.cpp.obj	640204dddbd36efb
@@ -21,7 +22,6 @@
 66	730	7235738982320322	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/bsplineu.cpp.obj	b981a05b867120f7
 38	562	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch2BezierCurves/tdbez.cpp.obj	b5a3325e587b2cd7
 4	566	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch2BezierCurves/dbezier.cpp.obj	15970adf737998de
-84	569	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/tbasis.cpp.obj	79b0c874192fbfb1
 95	570	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/knot.cpp.obj	1ade226b17d9ad60
 120	575	7235742184043678	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/dbasis.cpp.obj	6db5341f6d32e3ab
 55	576	7235742183887432	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch2BezierCurves/bezier.cpp.obj	60de030f330c6486
@@ -30,4 +30,8 @@
 73	578	7235742184043678	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/basis.cpp.obj	dcb4c1c57130acf6
 107	587	7235742184199939	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/bspline.cpp.obj	3a89036b80a9c29
 22	1143	7235742189669091	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch2BezierCurves/tbezier.cpp.obj	f8950db26b828112
-1143	1714	7235742194825693	CMakeProject1/CMakeProject1.exe	cf33dbd4e1db81d7
+40	638	7235751700331889	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/knotc.cpp.obj	5eca47007f5d6042
+59	639	7235751700331889	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/param.cpp.obj	e69664e3f26057ee
+5	639	7235751700331889	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/dbasisu.cpp.obj	57ef360e1907a241
+23	640	7235751700331889	CMakeProject1/CMakeFiles/CMakeProject1.dir/Cpp/Ch3BSplineCurves/dbspline.cpp.obj	9f303279423c13d9
+640	1258	7235751706007688	CMakeProject1/CMakeProject1.exe	7f28e190e5ad8ed4
