@@ -79,7 +79,7 @@ build cmake_object_order_depends_target_CMakeProject1: phony || CMakeProject1\CM
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\CMakeProject1.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\CMakeProject1.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -87,7 +87,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\CMakeProject1.cpp.obj: CXX_COMP
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\dbezier.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch2BezierCurves\dbezier.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -95,7 +95,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\dbezier.cpp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tbezier.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch2BezierCurves\tbezier.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -103,7 +103,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tbezier.cpp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tdbez.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch2BezierCurves\tdbez.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -111,7 +111,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tdbez.cpp.o
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\bezier.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch2BezierCurves\bezier.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -119,7 +119,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\bezier.cpp.
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\basis.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\basis.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -127,7 +127,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\basis.cpp.
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\tbasis.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\tbasis.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -135,7 +135,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\tbasis.cpp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bspline.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\bspline.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -143,7 +143,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bspline.cp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasis.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\dbasis.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -151,7 +151,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasis.cpp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bsplineu.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\bsplineu.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -159,7 +159,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bsplineu.c
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasisu.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\dbasisu.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -167,7 +167,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasisu.cp
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbspline.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\dbspline.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -175,7 +175,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbspline.c
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knot.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\knot.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -183,7 +183,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knot.cpp.o
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotu.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\knotu.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -191,7 +191,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotu.cpp.
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotc.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\knotc.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -199,7 +199,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotc.cpp.
 
 build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\param.cpp.obj: CXX_COMPILER__CMakeProject1_unscanned_Debug C$:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp\Ch3BSplineCurves\param.cpp || cmake_object_order_depends_target_CMakeProject1
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp
+  INCLUDES = -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\HeaderFiles -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Cpp -IC:\Users\msenturk\source\web\Personal_Workbench\CMakeProject1\CMakeProject1\Lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   OBJECT_FILE_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves
   TARGET_COMPILE_PDB = CMakeProject1\CMakeFiles\CMakeProject1.dir\
@@ -216,7 +216,7 @@ build CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\param.cpp.
 build CMakeProject1\CMakeProject1.exe: CXX_EXECUTABLE_LINKER__CMakeProject1_Debug CMakeProject1\CMakeFiles\CMakeProject1.dir\CMakeProject1.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\dbezier.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tbezier.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\tdbez.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch2BezierCurves\bezier.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\basis.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\tbasis.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bspline.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasis.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\bsplineu.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbasisu.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\dbspline.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knot.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotu.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\knotc.cpp.obj CMakeProject1\CMakeFiles\CMakeProject1.dir\Cpp\Ch3BSplineCurves\param.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = Lib/OpenGL32.Lib.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeProject1\CMakeFiles\CMakeProject1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

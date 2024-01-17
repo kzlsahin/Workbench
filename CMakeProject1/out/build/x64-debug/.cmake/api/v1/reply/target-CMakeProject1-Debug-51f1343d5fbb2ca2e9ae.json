@@ -14,6 +14,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_libraries",
 			"include_directories",
 			"set_property"
 		],
@@ -29,17 +30,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 6,
 				"parent" : 0
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 0,
 				"line" : 7,
 				"parent" : 0
@@ -47,7 +54,13 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 50,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 52,
 				"parent" : 0
 			}
 		]
@@ -64,12 +77,16 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "C:/Users/msenturk/source/web/Personal_Workbench/CMakeProject1/CMakeProject1/HeaderFiles"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "C:/Users/msenturk/source/web/Personal_Workbench/CMakeProject1/CMakeProject1/Cpp"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/msenturk/source/web/Personal_Workbench/CMakeProject1/CMakeProject1/Lib"
 				}
 			],
 			"language" : "CXX",
@@ -77,7 +94,7 @@
 			{
 				"backtraces" : 
 				[
-					4
+					6
 				],
 				"standard" : "20"
 			},
@@ -114,6 +131,11 @@
 			{
 				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Lib/OpenGL32.Lib.lib",
+				"role" : "libraries"
 			},
 			{
 				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
