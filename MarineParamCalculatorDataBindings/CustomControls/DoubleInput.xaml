@@ -1,0 +1,9 @@
+﻿<UserControl x:Class=" MarineParamCalculatorDataBindings.Controls.DoubleInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="120">
+    <TextBox x:Name="numericTextBox" PreviewTextInput="NumericTextBox_PreviewTextInput" BorderBrush="{x:Null}" Background="White" TextChanged="numericTextBox_LostFocus"/>
+</UserControl>
