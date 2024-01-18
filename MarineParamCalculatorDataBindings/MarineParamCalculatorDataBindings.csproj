@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Sail_sq.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Sail_sq.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="CustomControls\" />
   </ItemGroup>
 

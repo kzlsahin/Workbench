@@ -10,37 +10,46 @@ namespace MarineParamCalculatorDataBindings
 {
     public class Model : INotifyPropertyChanged
     {
-        double _b;
+        double _b = 5;
         public double B
         {
             get => _b;
             set
             {
-                _b = value;
-                RenewDelta();
-                OnPropertyChanged();
+                if(_b != value)
+                {
+                    _b = value;
+                    RenewDelta();
+                    OnPropertyChanged();
+                }                
             }
         }
-        double _l;
+        double _l = 5;
         public double L
         {
             get => _l;
             set
             {
-                _l = value;
-                RenewDelta();
-                OnPropertyChanged();
+                if(_l != value)
+                {
+                    _l = value;
+                    RenewDelta();
+                    OnPropertyChanged();
+                }                
             }
         }
-        double _t;
+        double _t = 5;
         public double T
         {
             get => _t;
             set
             {
-                _t = value;
-                RenewDelta();
-                OnPropertyChanged();
+                if(_t != value)
+                {
+                    _t = value;
+                    RenewDelta();
+                    OnPropertyChanged();
+                }                
             }
         }
         double _cb = 1;
@@ -49,20 +58,26 @@ namespace MarineParamCalculatorDataBindings
             get => _cb;
             set
             {
-                _cb = value;
-                RenewDelta();
-                OnPropertyChanged();
+                if(value != _cb)
+                {
+                    _cb = value;
+                    RenewDelta();
+                    OnPropertyChanged();
+                }                
             }
         }
-        double _delta;
+        double _delta = 125;
         public double Delta
         {
             get => _delta;
             set
             {
-                _delta = value;
-                RenewCb();
-                OnPropertyChanged();
+                if (_delta != value)
+                {
+                    _delta = value;
+                    RenewCb();
+                    OnPropertyChanged();
+                }                
             }
         }
 
@@ -80,6 +95,39 @@ namespace MarineParamCalculatorDataBindings
         public void RenewCb()
         {
             Cb = Delta / (B * T * L);
+        }
+
+        public override string ToString()
+        {
+            return $"B:{B,-11:f} L:{L,-11:f} T:{T,-11:f} Cb:{Cb,-11:f} Delta:{Delta,-11:f}";
+        }
+
+        internal void Parse(string data)
+        {
+            
+            Dictionary<string,double> keyValuePairs = new Dictionary<string,double>();
+            string[] items = data.Split(' ');
+            foreach(var item in items)
+            {
+                string[] pairs = item.Split(':');
+                if(pairs.Length < 2 )
+                {
+                    continue;
+                }
+                string key = pairs[0];
+                if (double.TryParse(pairs[1], out double value))
+                {
+                    keyValuePairs.Add(key, value);
+                }
+            }
+
+            if (keyValuePairs.TryGetValue("B", out double B_value))
+                B = B_value;
+            if (keyValuePairs.TryGetValue("L", out double L_value))
+                L = L_value;
+            if (keyValuePairs.TryGetValue("T", out double T_value))
+                T = T_value;
+            
         }
     }
 }

@@ -5,5 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" 
              d:DesignHeight="20" d:DesignWidth="120">
-    <TextBox x:Name="numericTextBox" PreviewTextInput="NumericTextBox_PreviewTextInput" BorderBrush="{x:Null}" Background="White" TextChanged="numericTextBox_LostFocus"/>
+    <TextBox 
+        x:Name="numericTextBox" 
+        PreviewTextInput="NumericTextBox_PreviewTextInput" 
+        BorderBrush="{x:Null}" 
+        Background="White" 
+        TextChanged="numericTextBox_TextChanged"
+        Style="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Style}"
+        VerticalAlignment="Center"/>
 </UserControl>
