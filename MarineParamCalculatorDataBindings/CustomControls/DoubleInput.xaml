@@ -6,11 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="20" d:DesignWidth="120">
     <TextBox 
-        x:Name="numericTextBox" 
+        x:Name="textBox" 
         PreviewTextInput="NumericTextBox_PreviewTextInput" 
         BorderBrush="{x:Null}" 
         Background="White" 
-        TextChanged="numericTextBox_TextChanged"
+        TextChanged="NumericTextBox_TextChanged"
         Style="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Style}"
         VerticalAlignment="Center"/>
 </UserControl>

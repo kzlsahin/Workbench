@@ -24,12 +24,13 @@ namespace MarineParamCalculatorDataBindings.Controls
     /// <summary>
     /// Interaction logic for DoubleInput.xaml
     /// </summary>
-    public partial class DoubleInput : UserControl, INotifyPropertyChanged
+    public partial class DoubleInput : UserControl
     {
         public static readonly DependencyProperty ValueProperty =
         DependencyProperty.Register("Value", typeof(double), typeof(DoubleInput), new PropertyMetadata(0.0, OnDependencyValueChanged));
 
-        private double _value = 0;
+        protected double _value = 0;
+        protected string _decimalSeperator => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
         public DoubleInput()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace MarineParamCalculatorDataBindings.Controls
         public event EventHandler? ValueChanged;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void NumericTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        protected void NumericTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             if (!IsNumericTextAllowed(e.Text))
             {
@@ -45,11 +46,11 @@ namespace MarineParamCalculatorDataBindings.Controls
             }
         }
 
-        private bool IsNumericTextAllowed(string text)
+        protected bool IsNumericTextAllowed(string text)
         {
             // Check if the entered text is a valid numeric value (allow '.' as well)
             char lastEntry = text[text.Length - 1];
-            return lastEntry == '.'
+            return _decimalSeperator.Contains(lastEntry)
                 || lastEntry == '-'
                 || Char.IsDigit(lastEntry);
         }
@@ -64,17 +65,19 @@ namespace MarineParamCalculatorDataBindings.Controls
                     _value = value;
                     SetValue(ValueProperty, value);
                     this.Text = _value.ToString();
-                    OnPropertyChanged();
                 }
             }
         }
         // Expose Text property for easy access
         public string Text
         {
-            get { return numericTextBox.Text; }
-            set { numericTextBox.Text = value; }
+            get { return textBox.Text; }
+            set 
+            { 
+                textBox.Text = value;
+            }
         }
-        private void numericTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        protected void NumericTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Check if the entered text is a valid numeric value
             if (double.TryParse(Text, out double val))
@@ -83,12 +86,7 @@ namespace MarineParamCalculatorDataBindings.Controls
                 ValueChanged?.Invoke(this, e);
             }
         }
-        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private static void OnDependencyValueChanged(object dependencyObject, DependencyPropertyChangedEventArgs e)
+        protected static void OnDependencyValueChanged(object dependencyObject, DependencyPropertyChangedEventArgs e)
         {
             string propName = e.Property.Name;
             Type thisType = typeof(DoubleInput);
