@@ -1,28 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MarineParamCalculatorDataBindings.Controls
 {
     /// <summary>
-    /// Interaction logic for DoubleInput.xaml
+    /// Control for double type inputs and bindable Value property.
     /// </summary>
     public partial class DoubleInput : UserControl
     {
@@ -50,8 +37,9 @@ namespace MarineParamCalculatorDataBindings.Controls
         {
             // Check if the entered text is a valid numeric value (allow '.' as well)
             char lastEntry = text[text.Length - 1];
-            return _decimalSeperator.Contains(lastEntry)
-                || lastEntry == '-'
+            return 
+                (_decimalSeperator.Contains(lastEntry) && !Text.Contains(lastEntry) == false)
+                || (Text.Length == 0 && lastEntry == '-')
                 || Char.IsDigit(lastEntry);
         }
 
