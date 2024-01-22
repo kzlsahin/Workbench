@@ -11,6 +11,7 @@ namespace MarineParamCalculatorDataBindings
     public class Model : INotifyPropertyChanged
     {
         double _b = 5;
+        bool _Calculating = false;
         public double B
         {
             get => _b;
@@ -90,11 +91,21 @@ namespace MarineParamCalculatorDataBindings
 
         public void RenewDelta()
         {
-            Delta = Cb * B * T * L;
+            if (!_Calculating)
+            {
+                _Calculating = true;
+                Delta = Cb * B * T * L;
+                _Calculating = false;
+            }
         }
         public void RenewCb()
         {
-            Cb = Delta / (B * T * L);
+            if (!_Calculating)
+            {
+                _Calculating = true;
+                Cb = Delta / (B * T * L);
+                _Calculating = false;
+            }
         }
 
         public override string ToString()
