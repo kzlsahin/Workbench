@@ -16,15 +16,48 @@ namespace MarineParamCalculatorDataBindings.Controls
         public static readonly DependencyProperty ValueProperty =
         DependencyProperty.Register("Value", typeof(double), typeof(DoubleInput), new PropertyMetadata(0.0, OnDependencyValueChanged));
 
+        public string FormatString { get; set; } = "";
+        public bool TrimTrailingZerosAfterDecimal = true;
         protected double _value = 0;
         protected string _decimalSeperator => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+        protected bool _localTextUpdate = false;
         public DoubleInput()
         {
             InitializeComponent();
         }
-        public event EventHandler? ValueChanged;
+        public event EventHandler? InputEntered;
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public double Value
+        {
+            get => _value;
+            set
+            {
+                if (_value != value)
+                {
+                    _value = value;
+                    string txt = _value.ToString(FormatString);
+                    if (TrimTrailingZerosAfterDecimal)
+                    {
+                        txt = txt.TrimEnd('0');
+                    }
+                    Text = txt;
+                }
+            }
+        }
+        // Expose Text property for easy access
+        public string Text
+        {
+            get { return textBox.Text; }
+            private set
+            {
+                if (value != textBox.Text)
+                {
+                    _localTextUpdate = true;
+                    textBox.Text = value;
+                }
+            }
+        }
         protected void NumericTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             if (!IsNumericTextAllowed(e.Text))
@@ -37,41 +70,29 @@ namespace MarineParamCalculatorDataBindings.Controls
         {
             // Check if the entered text is a valid numeric value (allow '.' as well)
             char lastEntry = text[text.Length - 1];
-            return 
-                (_decimalSeperator.Contains(lastEntry) && !Text.Contains(lastEntry) == false)
+            return
+                (_decimalSeperator.Contains(lastEntry) && !Text.Contains(lastEntry))
                 || (Text.Length == 0 && lastEntry == '-')
                 || Char.IsDigit(lastEntry);
         }
-
-        public double Value
-        {
-            get => _value;
-            set
-            {
-                if (_value != value)
-                {
-                    _value = value;
-                    SetValue(ValueProperty, value);
-                    this.Text = _value.ToString();
-                }
-            }
-        }
-        // Expose Text property for easy access
-        public string Text
-        {
-            get { return textBox.Text; }
-            set 
-            { 
-                textBox.Text = value;
-            }
-        }
         protected void NumericTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Check if the entered text is a valid numeric value
-            if (double.TryParse(Text, out double val))
+            if (_localTextUpdate)
             {
-                Value = val;
-                ValueChanged?.Invoke(this, e);
+                // text changed by Value
+                // if text is updated by own class do not loop back to the Value property
+                _localTextUpdate = false;
+            }
+            else
+            {
+                // Text Changed by user input
+                // Check if the entered text is a valid numeric value
+                if (double.TryParse(Text, out double val))
+                {
+                    _value = val;
+                    SetValue(ValueProperty, val);
+                    InputEntered?.Invoke(this, e);
+                }
             }
         }
         protected static void OnDependencyValueChanged(object dependencyObject, DependencyPropertyChangedEventArgs e)
