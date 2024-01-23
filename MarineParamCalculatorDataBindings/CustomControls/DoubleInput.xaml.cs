@@ -14,38 +14,66 @@ namespace MarineParamCalculatorDataBindings.Controls
     public partial class DoubleInput : UserControl
     {
         public static readonly DependencyProperty ValueProperty =
-        DependencyProperty.Register("Value", typeof(double), typeof(DoubleInput), new PropertyMetadata(0.0, OnDependencyValueChanged));
+        DependencyProperty.Register("Value", typeof(double), typeof(DoubleInput), new PropertyMetadata(0.0, OnValuePropertyChanged));
 
-        public string FormatString { get; set; } = "";
+        public static readonly DependencyProperty MaxDecimalPlaces =
+        DependencyProperty.Register("MaxAllowedDecimalPlaces", typeof(double), typeof(DoubleInput), new PropertyMetadata(0.0, OnMaxDecimalPlacesChanged));
+
+        /// <summary>
+        /// Sets maximum allowed decimal places of the controller that creates formatting string as "F.".
+        /// </summary>
+        /// <remarks>
+        /// This doesn't prevent user to exceed this limit. When value property is changed the output text will be affected by this value.
+        /// Default value for format string is "F2"
+        /// </remarks>
+        public int? MaxAllowedDecimalPlaces { get; set; }
+
+        /// <summary>
+        /// Sets boolean value to trim trailing zeros after the last meaningful decimal place or decimal seperator.
+        /// </summary>
         public bool TrimTrailingZerosAfterDecimal = true;
-        protected double _value = 0;
+        /// <summary>
+        /// format string used to stringify the Value.
+        /// </summary>
+        protected string _formatString { get; set; } = "F2";
+        /// <summary>
+        /// Decimal seperator of the current culture
+        /// </summary>
         protected string _decimalSeperator => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+        /// <summary>
+        /// Text is modified by Text property, don't handle TextInput
+        /// </summary>
         protected bool _localTextUpdate = false;
+        /// <summary>
+        /// this control is handling TextInput event.
+        /// </summary>
+        protected bool _inTextInput = false;
         public DoubleInput()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// When the text is changed and the text is parsable as Double.
+        /// </summary>
         public event EventHandler? InputEntered;
-        public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Value of the Value property.
+        /// </summary>
         public double Value
         {
-            get => _value;
+            get => (double)GetValue(ValueProperty);
             set
             {
-                if (_value != value)
+                if (Value != value)
                 {
-                    _value = value;
-                    string txt = _value.ToString(FormatString);
-                    if (TrimTrailingZerosAfterDecimal)
-                    {
-                        txt = txt.TrimEnd('0');
-                    }
-                    Text = txt;
+                    SetValue(ValueProperty, value);
                 }
             }
         }
-        // Expose Text property for easy access
+        /// <summary>
+        /// Exposes the Text value of the underneath TextBox
+        /// </summary>
         public string Text
         {
             get { return textBox.Text; }
@@ -53,20 +81,32 @@ namespace MarineParamCalculatorDataBindings.Controls
             {
                 if (value != textBox.Text)
                 {
+                    // prevent event feedback when the TExtBox is updated by this class
                     _localTextUpdate = true;
                     textBox.Text = value;
+                    _localTextUpdate = false;
+
                 }
             }
         }
+        /// <summary>
+        /// Check input preview, accept only allowed characters.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void NumericTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            if (!IsNumericTextAllowed(e.Text))
+            if (!IsCharacterAllowed(e.Text))
             {
                 e.Handled = true;
             }
         }
-
-        protected bool IsNumericTextAllowed(string text)
+        /// <summary>
+        /// Character check method.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns>true if character is allowed, false otherwise</returns>
+        protected bool IsCharacterAllowed(string text)
         {
             // Check if the entered text is a valid numeric value (allow '.' as well)
             char lastEntry = text[text.Length - 1];
@@ -75,34 +115,65 @@ namespace MarineParamCalculatorDataBindings.Controls
                 || (Text.Length == 0 && lastEntry == '-')
                 || Char.IsDigit(lastEntry);
         }
+        /// <summary>
+        /// If not _inTextInput, updates Value according to parsed Text.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void NumericTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (_localTextUpdate)
-            {
-                // text changed by Value
-                // if text is updated by own class do not loop back to the Value property
-                _localTextUpdate = false;
-            }
-            else
+            _inTextInput = true;
+            if (_localTextUpdate == false)
             {
                 // Text Changed by user input
                 // Check if the entered text is a valid numeric value
                 if (double.TryParse(Text, out double val))
                 {
-                    _value = val;
-                    SetValue(ValueProperty, val);
+                    Value = val;
                     InputEntered?.Invoke(this, e);
                 }
             }
+            _inTextInput = false;
         }
-        protected static void OnDependencyValueChanged(object dependencyObject, DependencyPropertyChangedEventArgs e)
+        /// <summary>
+        /// Updates Text property only if nTextInput is false.
+        /// </summary>
+        /// <param name="newValue"></param>
+        protected void OnValueChanged(double? newValue)
         {
-            string propName = e.Property.Name;
-            Type thisType = typeof(DoubleInput);
-            PropertyInfo? myPropInfo = thisType.GetProperty(propName);
-            if (myPropInfo is null)
+            if (_inTextInput)
                 return;
-            myPropInfo.SetValue(dependencyObject, e.NewValue);
+            if (newValue.HasValue)
+            {
+                string txt = newValue.Value.ToString(_formatString);
+                if (TrimTrailingZerosAfterDecimal)
+                {
+                    txt = txt.TrimEnd('0');
+                }
+                Text = txt;
+            }
         }
+        private static void OnValuePropertyChanged(object dependencyObject, DependencyPropertyChangedEventArgs e)
+        {
+            if (dependencyObject is DoubleInput)
+            {
+                DoubleInput? di = dependencyObject as DoubleInput;
+                if (di is not null)
+                {
+                    di.OnValueChanged(e.NewValue as double?);
+                }
+            }
+        }
+
+        private static void OnMaxDecimalPlacesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            int? newValue = e.NewValue as int?;
+            FieldInfo? fieldInfo = typeof(DoubleInput).GetField("_formatString");
+            if (newValue.HasValue && fieldInfo is not null)
+            {
+                fieldInfo.SetValue(d, $"F{newValue}");
+            }
+        }
+
     }
 }

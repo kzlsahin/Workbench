@@ -134,6 +134,7 @@
                 <controls:DoubleInput 
                     Grid.Column="1" 
                     Value="{Binding Cb,  Mode=TwoWay}"
+                    MaxAllowedDecimalPlaces="3"
                     Style="{StaticResource DoubleInputStyle}"/>
             </ItemsControl>
             <ItemsControl Grid.Row="4"  Style="{StaticResource GridColumnStyle1}">
@@ -141,6 +142,7 @@
                 <controls:DoubleInput 
                     Grid.Column="1" 
                     Value="{Binding Delta,  Mode=TwoWay}"
+                    MaxAllowedDecimalPlaces="3"
                     Style="{StaticResource DoubleInputStyle}"/>
             </ItemsControl>
         </ItemsControl>
