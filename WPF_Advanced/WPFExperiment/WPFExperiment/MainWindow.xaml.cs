@@ -26,7 +26,7 @@ namespace WPFExperiment
         public MainWindow()
         {
             InitializeComponent();
-            drawer = new PyramidSquareTutorial();
+            drawer = new BufferDrawer((int)ActualWidth, (int)ActualHeight);
         }
 
         private void openGLControl_OpenGLDraw(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
