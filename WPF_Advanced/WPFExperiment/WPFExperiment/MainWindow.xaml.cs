@@ -22,39 +22,27 @@ namespace WPFExperiment
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        IGLDrawer drawer;
         public MainWindow()
         {
             InitializeComponent();
+            drawer = new PyramidSquareTutorial();
         }
 
         private void openGLControl_OpenGLDraw(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
         {
-            PyramidSquareTutorial.Draw(sender, args);
+            var drawer = new PyramidSquareTutorial();
+            drawer.Draw(sender, args);
         }
 
         private void openGLControl_OpenGLInitialized(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
         {
-            OpenGL gl = args.OpenGL;
-            gl.Enable(OpenGL.GL_DEPTH_TEST);
+            drawer.Initialize(sender, args);
         }
 
         private void openGLControl_Resized(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
         {
-            // Get the OpenGL instance.
-            OpenGL gl = args.OpenGL;
-
-            // Load and clear the projection matrix.
-            gl.MatrixMode(OpenGL.GL_PROJECTION);
-            gl.LoadIdentity();
-
-            // Perform a perspective transformation
-            gl.Perspective(45.0f, (float)gl.RenderContextProvider.Width /
-                (float)gl.RenderContextProvider.Height,
-                0.1f, 100.0f);
-
-            // Load the modelview.
-            gl.MatrixMode(OpenGL.GL_MODELVIEW);
+            drawer.OnWindowResized(sender, args);
         }
     }
 }

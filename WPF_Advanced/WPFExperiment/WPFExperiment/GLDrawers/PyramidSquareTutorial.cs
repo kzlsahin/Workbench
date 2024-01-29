@@ -1,4 +1,5 @@
 ﻿using SharpGL;
+using SharpGL.WPF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace WPFExperiment.GLDrawers
 {
-    internal class PyramidSquareTutorial
+    internal class PyramidSquareTutorial : IGLDrawer
     {
-        static float rotatePyramid = 0;
-        static float rquad = 0;
-        public static void Draw(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
+        float rotatePyramid = 0;
+        float rquad = 0;
+        public void Draw(object sender, SharpGL.WPF.OpenGLRoutedEventArgs args)
         {
             OpenGL gl = args.OpenGL;
             //  Clear the color and depth buffers.
@@ -115,6 +116,30 @@ namespace WPFExperiment.GLDrawers
             //  Rotate the geometry a bit.
             rotatePyramid += 3.0f;
             rquad -= 3.0f;
+        }
+
+        public void Initialize(object sender, OpenGLRoutedEventArgs args)
+        {
+            OpenGL gl = args.OpenGL;
+            gl.Enable(OpenGL.GL_DEPTH_TEST);
+        }
+
+        public void OnWindowResized(object sender, OpenGLRoutedEventArgs args)
+        {
+            // Get the OpenGL instance.
+            OpenGL gl = args.OpenGL;
+
+            // Load and clear the projection matrix.
+            gl.MatrixMode(OpenGL.GL_PROJECTION);
+            gl.LoadIdentity();
+
+            // Perform a perspective transformation
+            gl.Perspective(45.0f, (float)gl.RenderContextProvider.Width /
+                (float)gl.RenderContextProvider.Height,
+                0.1f, 100.0f);
+
+            // Load the modelview.
+            gl.MatrixMode(OpenGL.GL_MODELVIEW);
         }
     }
 }
