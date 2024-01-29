@@ -8,6 +8,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <sharpGL:OpenGLControl x:Name="openGLControl"/>
+        <sharpGL:OpenGLControl x:Name="openGLControl"
+                               OpenGLInitialized="openGLControl_OpenGLInitialized"
+                              OpenGLDraw="openGLControl_OpenGLDraw" 
+                               Resized="openGLControl_Resized" 
+                               DrawFPS="True"/>
     </Grid>
 </Window>
