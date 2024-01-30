@@ -16,10 +16,8 @@ namespace FileEncrypterCore
             _prompter = prompter;
         }
 
-        public void Run(string path, string userPassword)
+        public void Run(string content, string path, string userPassword)
         {
-            string content = FileIO.GetFileContent(path, _prompter);
-
             var encoding = Encoding.UTF8;
             KeyGetter.GetKey(userPassword, out Byte[] key, 8, 16, encoding);
 

@@ -5,7 +5,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static FileEncrypterCore.FileIO;
 
 namespace FileEncrypterCore
 {
@@ -20,17 +19,14 @@ namespace FileEncrypterCore
             _prompter = prompter;
         }
 
-        public void Run(string path, string userPassword)
+        public void Run(string content, string path, string userPassword)
         {
-            string content = FileIO.GetFileContent(path, _prompter);
-
             var encoding = Encoding.UTF8;
             KeyGetter.GetKey(userPassword, out Byte[] key, 8, 16, encoding);
 
             string salt = "jnaljfzh";
             byte[] encrypted;
-            byte[] kekeySalted = new byte[16];
-            kekeySalted = KeyGetter.CreateKey16(key, salt, encoding);
+            byte[] kekeySalted = KeyGetter.CreateKey16(key, salt, encoding);
 
             EncryptedData encryptedData = new EncryptedData();
             // Create an Aes object

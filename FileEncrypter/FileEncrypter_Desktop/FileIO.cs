@@ -1,10 +1,12 @@
-﻿using System;
+﻿using FileEncrypterCore;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileEncrypterCore
+namespace FileEncrypter_Desktop
 {
     public static class FileIO
     {

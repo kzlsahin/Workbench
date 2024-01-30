@@ -59,7 +59,8 @@ namespace FileEncrypter_Desktop
             {
                 pass = passwordFrom.Password;
                 Encrypter encrypter = new Encrypter(_prompter);
-                encrypter.Run(FileName, pass);
+                string content = FileIO.GetFileContent(FileName, _prompter);
+                encrypter.Run(content, FileName, pass);
             }
             else
             {
@@ -76,7 +77,8 @@ namespace FileEncrypter_Desktop
             {
                 pass = passwordFrom.Password;
                 Decrypter decrypter = new Decrypter(_prompter);
-                decrypter.Run(FileName, pass);
+                string content = FileIO.GetFileContent(FileName, _prompter);
+                decrypter.Run(content, FileName, pass);
             }
             else
             {
