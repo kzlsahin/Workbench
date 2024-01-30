@@ -1,4 +1,4 @@
-﻿using FileHasher;
+﻿using FileEncrypterCore;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -23,9 +23,9 @@ namespace FileEncrypter_Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string FileName { get; set; }
-        public string Directory { get; set; }
-        public Prompter _prompter { get; private set; }
+        public string FileName { get; set; } = "";
+        public string Directory { get; set; } = "";
+        public IPrompter _prompter { get; private set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -52,14 +52,36 @@ namespace FileEncrypter_Desktop
 
         private void btnEncrypt_Click(object sender, RoutedEventArgs e)
         {
-            Encrypter encrypter = new Encrypter(_prompter);
-            encrypter.Run(FileName);
+            string pass = "";
+            PasswordForm passwordFrom = new(Encrypter.MIN_PASS_LENGTH, Encrypter.MAX_PASS_LENGTH);
+            passwordFrom.ShowDialog();
+            if (passwordFrom.Result == true)
+            {
+                pass = passwordFrom.Password;
+                Encrypter encrypter = new Encrypter(_prompter);
+                encrypter.Run(FileName, pass);
+            }
+            else
+            {
+                _prompter.WriteLine("Encryption is canceled.");
+            }
         }
 
         private void btnDecrypt_Click(object sender, RoutedEventArgs e)
         {
-            Decrypter decrypter = new Decrypter(_prompter);
-            decrypter.Run(FileName);
+            string pass = "";
+            PasswordForm passwordFrom = new(Encrypter.MIN_PASS_LENGTH, Encrypter.MAX_PASS_LENGTH);
+            passwordFrom.ShowDialog();
+            if (passwordFrom.Result == true)
+            {
+                pass = passwordFrom.Password;
+                Decrypter decrypter = new Decrypter(_prompter);
+                decrypter.Run(FileName, pass);
+            }
+            else
+            {
+                _prompter.WriteLine("Decryption is canceled.");
+            }
         }
 
         private bool IsFileJson()

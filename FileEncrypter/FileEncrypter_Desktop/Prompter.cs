@@ -1,36 +1,25 @@
-﻿using System;
+﻿using FileEncrypterCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Interop;
 
 namespace FileEncrypter_Desktop
 {
-    public class Prompter
+    public class Prompter : IPrompter
     {
-        public Action<string> WriteLine { get; set; }
-
-        TextBlock _textBlock;
         TextBox _textBox;
-        public Prompter(TextBlock label)
+        public Prompter(TextBox label)
         {
-            _textBlock = label;
-            WriteLine = WriteLineToLabel;
+            _textBox = label;
         }
-        public Prompter(TextBox textBox)
+
+        void IPrompter.WriteLine(string msg)
         {
-            _textBox = textBox;
-            WriteLine = WriteLineToTextBox;
-        }
-        void WriteLineToLabel(string msg)
-        {
-            _textBlock.Text += "> " + msg + "\n";
-        }
-        void WriteLineToTextBox(string msg) 
-        {
-            _textBox.AppendText("> " + msg + "\n");
-            _textBox.ScrollToEnd();
+            _textBox.Text += "> " + msg + "\n";
         }
     }
 }
