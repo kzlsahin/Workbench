@@ -26,10 +26,10 @@ namespace WPFExperiment.GLDrawers
             OpenGL gl = args.OpenGL;
 
             // Set up the viewport and projection matrix
-            gl.Viewport(0, 0, (int)ActualWidth, (int)ActualHeight);
+            gl.Viewport(0, 0, ActualWidth, ActualHeight);
             gl.MatrixMode(OpenGL.GL_PROJECTION);
             gl.LoadIdentity();
-            gl.Perspective(45.0f, ActualWidth / ActualHeight, 0.1f, 100.0f);
+            gl.Perspective(45.0f, (double)ActualWidth / ActualHeight, 0.1f, 100.0f);
             gl.LookAt(0, 0, 5, 0, 0, 0, 0, 1, 0);
 
             // Set up the modelview matrix
