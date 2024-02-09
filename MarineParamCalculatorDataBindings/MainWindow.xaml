@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarineParamCalculatorDataBindings"
-        xmlns:controls="clr-namespace:MarineParamCalculatorDataBindings.Controls"
+        xmlns:controls="clr-namespace:FloatingPointControls;assembly=FloatingPointControl"
         mc:Ignorable="d"
         Title="Ship Hull Principles Calculator" Height="450" Width="340">
     <Window.Resources>
