@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FileEncrypter_Desktop"
         mc:Ignorable="d"
-        Title="Kzlsahin File Encrypter" Height="604" Width="485" Icon="/Sail_sq.png" Background="#FF0E3788">
+        Title="Kzlsahin File Encrypter" Height="Auto" Width="485" Icon="/Sail_sq.png" Background="#FF0E3788" >
     <StackPanel Margin="36,24,36,15">
         <TextBox x:Name="lblPrompter" Text="" IsReadOnly="True" Height="205" Foreground="#FFFDFDFD" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="WrapWithOverflow" Background="{x:Null}"/>
         <Label x:Name="lblFile" Content="..." Margin="0,20,0,10" HorizontalContentAlignment="Center" Foreground="#FFE8E8E8"/>

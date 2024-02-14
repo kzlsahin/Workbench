@@ -4,16 +4,20 @@ using Avalonia.Platform.Storage;
 using FileEncrypterCore;
 using System.IO;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 
 namespace AvalonCrypter.Views;
 
 public partial class MainView : UserControl
 {
+    int MAX_PASS_LENGTH = 16;
+    int MIN_PASS_LENGTH = 8;
     public string FileName { get; set; } = "";
     public string Directory { get; set; } = "";
     private IPrompter _prompter;
-    private string _fileContent;
-    private Window _ownerWindow;
+    private string _fileContent = "";
     public MainView()
     {
         InitializeComponent();
@@ -33,7 +37,7 @@ public partial class MainView : UserControl
             AllowMultiple = false
         });
 
-        if (files.Count > 1)
+        if (files.Count > 0)
         {
             FileName = files[0].Name;
             await using var stream = await files[0].OpenReadAsync();
@@ -50,13 +54,22 @@ public partial class MainView : UserControl
 
     private void btnEncrypt_Click(object sender, RoutedEventArgs e)
     {
-        PasswordForm passwordFrom = new(Encrypter.MIN_PASS_LENGTH, Encrypter.MAX_PASS_LENGTH);
-        passwordFrom.Show();
-        if (passwordFrom.Result == true)
+        _ = Encrypt();
+    }
+    private async Task Encrypt()
+    {
+        PasswordForm passwordFrom = new();
+        passwordFrom.MaxLength = MAX_PASS_LENGTH;
+        passwordFrom.MinLength = MIN_PASS_LENGTH;
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop?.MainWindow is not null)
+        {
+            await passwordFrom.ShowDialog(desktop.MainWindow);
+        }
+        if (passwordFrom.Result)
         {
             var pass = passwordFrom.Password;
             Encrypter encrypter = new Encrypter(_prompter);
-            encrypter.Run(FileName, FileName, pass);
+            encrypter.Run(_fileContent, FileName, pass);
         }
         else
         {
@@ -66,13 +79,15 @@ public partial class MainView : UserControl
 
     private void btnDecrypt_Click(object sender, RoutedEventArgs e)
     {
-        PasswordForm passwordFrom = new(Encrypter.MIN_PASS_LENGTH, Encrypter.MAX_PASS_LENGTH);
+        PasswordForm passwordFrom = new();
+        passwordFrom.MaxLength = MAX_PASS_LENGTH;
+        passwordFrom.MinLength = MIN_PASS_LENGTH;
         passwordFrom.Show();
-        if (passwordFrom.Result == true)
+        if (passwordFrom.Result)
         {
             var pass = passwordFrom.Password;
             Decrypter decrypter = new Decrypter(_prompter);
-            decrypter.Run(FileName, FileName, pass);
+            decrypter.Run(_fileContent, FileName, pass);
         }
         else
         {

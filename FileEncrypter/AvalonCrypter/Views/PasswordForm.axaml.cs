@@ -6,29 +6,26 @@ namespace AvalonCrypter.Views
 {
     public partial class PasswordForm : Window
     {
-        public string Password { get; set; }
-        public bool Result = false;
-        private int _minLength;
-        private int _maxLength;
-        public PasswordForm(int minLength, int mnacLength)
+        public string Password { get; set; } = "";
+        public bool Result { get; private set; } = false;
+        public int MinLength { get; set; }
+        public int MaxLength {  get; set; }
+        public PasswordForm()
         {
             InitializeComponent();
-            _minLength = minLength;
-            _maxLength = mnacLength;
         }
         private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
         {
             string pass = txtPassword.Text ?? "";
             lblStatus.Content = "";
             CheckInitialPassword(pass);
-
         }
 
         private bool CheckInitialPassword(string pass)
         {
-            if (pass.Length < _minLength || pass.Length > _maxLength)
+            if (pass.Length < MinLength || pass.Length > MaxLength)
             {
-                lblStatus.Content += $"password should be {_minLength}-{_maxLength} letters in lenth!\n";
+                lblStatus.Content += $"password should be {MinLength}-{MaxLength} letters in lenth!\n";
                 return false;
             }
             return true;
@@ -76,7 +73,6 @@ namespace AvalonCrypter.Views
                 this.Result = true;
                 this.Close();
             }
-            return;
         }
     }
 }

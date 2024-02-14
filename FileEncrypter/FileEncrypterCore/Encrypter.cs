@@ -10,9 +10,6 @@ namespace FileEncrypterCore
 {
     public class Encrypter
     {
-        public const int MIN_PASS_LENGTH = 8;
-        public const int MAX_PASS_LENGTH = 16;
-
         public IPrompter _prompter { get; private set; }
         public Encrypter(IPrompter prompter)
         {
