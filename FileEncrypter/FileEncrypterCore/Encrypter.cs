@@ -10,13 +10,13 @@ namespace FileEncrypterCore
 {
     public class Encrypter
     {
-        public IPrompter _prompter { get; private set; }
+        private readonly IPrompter _prompter;
         public Encrypter(IPrompter prompter)
         {
             _prompter = prompter;
         }
 
-        public void Run(string content, string path, string userPassword)
+        public string Run(string content, string path, string userPassword)
         {
             var encoding = Encoding.UTF8;
             KeyGetter.GetKey(userPassword, out Byte[] key, 8, 16, encoding);
@@ -51,18 +51,8 @@ namespace FileEncrypterCore
                     }
                 }
             }
-            string directory = Path.GetDirectoryName(path) ?? string.Empty;
-            string fileName = Path.GetFileNameWithoutExtension(path);
-            string OutputFile = Path.Combine(directory, $"{fileName}_encrypted");
-            //using (FileStream fs = File.Open(OutputFile, FileMode.Create))
-            //{
-            //        fs.Write(encrypted);
-            //}
-            string jsonFileName = OutputFile + ".json";
             string str = JsonSerializer.Serialize(encryptedData);
-            File.WriteAllText(jsonFileName, str);
-
-            _prompter.WriteLine("file is written to " + OutputFile);
+            return str;
         }
     }
 }

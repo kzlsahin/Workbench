@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using System;
 
 namespace AvalonCrypter.Views;
 
@@ -15,15 +16,17 @@ public partial class MainView : UserControl
     int MAX_PASS_LENGTH = 16;
     int MIN_PASS_LENGTH = 8;
     public string FileName { get; set; } = "";
-    public string Directory { get; set; } = "";
     private IPrompter _prompter;
     private string _fileContent = "";
+    private Uri? _lastOutput;
+    readonly ContentWriter _writer;
     public MainView()
     {
         InitializeComponent();
         btnEncrypt.IsEnabled = false;
         btnDecrypt.IsEnabled = false;
         _prompter = new Prompter(lblPrompter);
+        _writer = new();
     }
     private async void btnSelectFile_Click(object sender, RoutedEventArgs e)
     {
@@ -61,7 +64,7 @@ public partial class MainView : UserControl
         PasswordForm passwordFrom = new();
         passwordFrom.MaxLength = MAX_PASS_LENGTH;
         passwordFrom.MinLength = MIN_PASS_LENGTH;
-        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop?.MainWindow is not null)
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow is not null)
         {
             await passwordFrom.ShowDialog(desktop.MainWindow);
         }
@@ -69,11 +72,37 @@ public partial class MainView : UserControl
         {
             var pass = passwordFrom.Password;
             Encrypter encrypter = new Encrypter(_prompter);
-            encrypter.Run(_fileContent, FileName, pass);
-        }
-        else
-        {
-            _prompter.WriteLine("Encryption is canceled.");
+            var encryptedContent = encrypter.Run(_fileContent, FileName, pass);
+
+            string jsonFileName = $"{FileName}_encrypted.json";
+
+            var topLevel = TopLevel.GetTopLevel(this);
+            if (topLevel is null)
+                return;
+            var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+            {
+                Title = "save out put. Keep default name!",
+                DefaultExtension = "json",
+                SuggestedFileName = jsonFileName,
+            });
+
+            if(file is not null)
+            {
+                if(await _writer.WriteAsync(file, encryptedContent))
+                {
+                    _prompter.WriteLine($"written to the file {file.Path}");
+                    _lastOutput = file.Path;
+                }
+                else
+                {
+                    _prompter.WriteLine("Couldn't write to file.");
+                    _prompter.WriteLine(_writer.ErrMessage);
+                }
+            }
+            else
+            {
+                _prompter.WriteLine("Encryption is canceled.");
+            }            
         }
     }
 
@@ -106,6 +135,11 @@ public partial class MainView : UserControl
 
     private void btnOpenDirectory_Click(object sender, RoutedEventArgs e)
     {
-        Process.Start("explorer.exe", Directory);
+        var localPath = _lastOutput?.LocalPath;
+        var dir = Path.GetDirectoryName(localPath);
+        if(dir is not null)
+        {
+            Process.Start(dir);
+        }
     }
 }

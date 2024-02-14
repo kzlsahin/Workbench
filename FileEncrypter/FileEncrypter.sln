@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvalonCrypter", "AvalonCryp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvalonCrypter.Desktop", "AvalonCrypter.Desktop\AvalonCrypter.Desktop.csproj", "{C842DA3F-3D3E-48C2-B19F-4AF37B74D63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncrypterCore", "FileEncrypterCore\FileEncrypterCore.csproj", "{8BEBD3A4-004F-48E5-B450-8B3649A2D281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileEncrypterCore", "FileEncrypterCore\FileEncrypterCore.csproj", "{8BEBD3A4-004F-48E5-B450-8B3649A2D281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
