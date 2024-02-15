@@ -5,7 +5,7 @@ using Avalonia;
 using Avalonia.Browser;
 using Avalonia.ReactiveUI;
 
-using web;
+using AvalonCrypter;
 
 [assembly: SupportedOSPlatform("browser")]
 

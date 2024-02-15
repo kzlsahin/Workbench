@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace web.iOS;
+namespace AvalonCrypter.iOS;
 
 public class Application
 {

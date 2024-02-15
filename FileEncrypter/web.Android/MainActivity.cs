@@ -5,7 +5,7 @@ using Avalonia;
 using Avalonia.Android;
 using Avalonia.ReactiveUI;
 
-namespace web.Android;
+namespace AvalonCrypter.Android;
 
 [Activity(
     Label = "web.Android",
