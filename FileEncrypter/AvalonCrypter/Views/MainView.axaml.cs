@@ -8,17 +8,33 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using System;
+using Avalonia.Controls.Shapes;
+using ReactiveUI;
+using System.Linq.Expressions;
+using System.ComponentModel;
 
 namespace AvalonCrypter.Views;
 
-public partial class MainView : UserControl
+public partial class MainView : UserControl, INotifyPropertyChanged
 {
     int MAX_PASS_LENGTH = 16;
     int MIN_PASS_LENGTH = 8;
     public string FileName { get; set; } = "";
     private IPrompter _prompter;
     private string _fileContent = "";
-    private Uri? _lastOutput;
+    Uri? _lastOutput;
+    public Uri? LastOutput
+    {
+        get
+        {
+            return _lastOutput;
+        }
+        private set
+        {
+            _lastOutput = value;
+            OnPropertyChanged(nameof(LastOutput));
+        }
+    }
     readonly ContentWriter _writer;
     public MainView()
     {
@@ -27,6 +43,7 @@ public partial class MainView : UserControl
         btnDecrypt.IsEnabled = false;
         _prompter = new Prompter(lblPrompter);
         _writer = new();
+        DataContext = this;
     }
     private async void btnSelectFile_Click(object sender, RoutedEventArgs e)
     {
@@ -48,11 +65,8 @@ public partial class MainView : UserControl
             // Reads all the content of file as a text.
             _fileContent = await streamReader.ReadToEndAsync();
         }
-        if (IsFileJson())
-        {
-            btnDecrypt.IsEnabled = true;
-        }
         btnEncrypt.IsEnabled = true;
+        btnDecrypt.IsEnabled = true;
     }
 
     private void btnEncrypt_Click(object sender, RoutedEventArgs e)
@@ -61,6 +75,7 @@ public partial class MainView : UserControl
     }
     private async Task Encrypt()
     {
+        if (string.IsNullOrEmpty(_fileContent)) return;
         PasswordForm passwordFrom = new();
         passwordFrom.MaxLength = MAX_PASS_LENGTH;
         passwordFrom.MinLength = MIN_PASS_LENGTH;
@@ -72,7 +87,7 @@ public partial class MainView : UserControl
         {
             var pass = passwordFrom.Password;
             Encrypter encrypter = new Encrypter(_prompter);
-            var encryptedContent = encrypter.Run(_fileContent, FileName, pass);
+            var encryptedContent = encrypter.Run(_fileContent, pass);
 
             string jsonFileName = $"{FileName}_encrypted.json";
 
@@ -86,12 +101,12 @@ public partial class MainView : UserControl
                 SuggestedFileName = jsonFileName,
             });
 
-            if(file is not null)
+            if (file is not null)
             {
-                if(await _writer.WriteAsync(file, encryptedContent))
+                if (await _writer.WriteAsync(file, encryptedContent))
                 {
                     _prompter.WriteLine($"written to the file {file.Path}");
-                    _lastOutput = file.Path;
+                    LastOutput = file.Path;
                 }
                 else
                 {
@@ -102,44 +117,76 @@ public partial class MainView : UserControl
             else
             {
                 _prompter.WriteLine("Encryption is canceled.");
-            }            
+            }
         }
     }
 
     private void btnDecrypt_Click(object sender, RoutedEventArgs e)
     {
+        _ = Decrypt();
+    }
+    private async Task Decrypt()
+    {
+        if (string.IsNullOrEmpty(_fileContent)) return;
+
         PasswordForm passwordFrom = new();
         passwordFrom.MaxLength = MAX_PASS_LENGTH;
         passwordFrom.MinLength = MIN_PASS_LENGTH;
-        passwordFrom.Show();
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow is not null)
+        {
+            await passwordFrom.ShowDialog(desktop.MainWindow);
+        }
         if (passwordFrom.Result)
         {
             var pass = passwordFrom.Password;
+
             Decrypter decrypter = new Decrypter(_prompter);
-            decrypter.Run(_fileContent, FileName, pass);
+            string content = decrypter.Run(_fileContent, pass);
+
+            if (string.IsNullOrEmpty(content))
+            {
+                _prompter.WriteLine("empty file!");
+                return;
+            }
+            string decryptedFilename = $"{FileName}_decrypted.txt";
+
+            var topLevel = TopLevel.GetTopLevel(this);
+            if (topLevel is null)
+                return;
+            var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+            {
+                Title = "save decrypted file",
+                DefaultExtension = "txt",
+                SuggestedFileName = decryptedFilename,
+            });
+
+            if (file is not null)
+            {
+                if (await _writer.WriteAsync(file, content))
+                {
+                    _prompter.WriteLine($"written to the file {file.Path}");
+                    LastOutput = file.Path;
+                }
+                else
+                {
+                    _prompter.WriteLine("Couldn't write to file.");
+                    _prompter.WriteLine(_writer.ErrMessage);
+                }
+            }
+            else
+            {
+                _prompter.WriteLine("Decryption is canceled.");
+            }
         }
         else
         {
             _prompter.WriteLine("Decryption is canceled.");
         }
     }
+    public event PropertyChangedEventHandler PropertyChanged;
 
-    private bool IsFileJson()
+    protected virtual void OnPropertyChanged(string propertyName)
     {
-        if (Path.GetExtension(FileName) == ".json")
-        {
-            return true;
-        }
-        return false;
-    }
-
-    private void btnOpenDirectory_Click(object sender, RoutedEventArgs e)
-    {
-        var localPath = _lastOutput?.LocalPath;
-        var dir = Path.GetDirectoryName(localPath);
-        if(dir is not null)
-        {
-            Process.Start(dir);
-        }
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

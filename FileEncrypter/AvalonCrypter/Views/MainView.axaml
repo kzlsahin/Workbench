@@ -24,11 +24,12 @@
 			HorizontalAlignment="Stretch"
 				 ScrollViewer.HorizontalScrollBarVisibility="Auto"
 				 ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-		<Label Grid.Row="1" x:Name="lblFile" Content="..." Margin="0,20,0,10" HorizontalContentAlignment="Center" Foreground="#FFE8E8E8" HorizontalAlignment="Stretch"/>
+		<Label Grid.Row="1" x:Name="lblFile" Margin="0,20,0,10" HorizontalContentAlignment="Center" Foreground="#FFE8E8E8" HorizontalAlignment="Stretch">
+			<TextBox Text="{Binding LastOutput, Mode=OneWay}" Foreground="#FFFDFDFD" Background="Transparent" BorderBrush="Transparent"/>
+		</Label>
 		<Button Grid.Row="2" x:Name="btnSelectFile" Content="Select File" Margin="0,10,0,10" Padding="1,6,1,6" Click="btnSelectFile_Click" HorizontalAlignment="Stretch" Background="#FFFDFDFD" />
 		<Button Grid.Row="3" x:Name="btnEncrypt" Content="Encrypt" Margin="0,10,0,10" Padding="1,6,1,6" Background="#FFE8E8E8"  Click="btnEncrypt_Click" HorizontalAlignment="Stretch"/>
 		<Button Grid.Row="4" x:Name="btnDecrypt" Content="Decrypt" Margin="0,10,0,10" Padding="1,6,1,6" Background="#FFE8E8E8" Click="btnDecrypt_Click" HorizontalAlignment="Stretch"/>
-		<Button Grid.Row="5" x:Name="btnOpenDirectory" Content="Open Containing Folder" Margin="0,10,0,10" Padding="1,6,1,6"  Background="#FFE8E8E8" Click="btnOpenDirectory_Click" HorizontalAlignment="Stretch"/>
 
 	</Grid>
 </UserControl>

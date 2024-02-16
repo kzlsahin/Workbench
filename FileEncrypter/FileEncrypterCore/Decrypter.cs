@@ -16,7 +16,7 @@ namespace FileEncrypterCore
             _prompter = prompter;
         }
 
-        public void Run(string content, string path, string userPassword)
+        public string Run(string content, string userPassword)
         {
             var encoding = Encoding.UTF8;
             KeyGetter.GetKey(userPassword, out Byte[] key, 8, 16, encoding);
@@ -55,10 +55,7 @@ namespace FileEncrypterCore
                     }
                 }
             }
-            string directory = Path.GetDirectoryName(path) ?? String.Empty;
-            string fileName = Path.GetFileNameWithoutExtension(path) + "_decrypted.txt";
-            string outputFile = Path.Combine(directory, fileName);
-            File.WriteAllText(outputFile, plaintext);
+            return plaintext;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace FileEncrypterCore
             _prompter = prompter;
         }
 
-        public string Run(string content, string path, string userPassword)
+        public string Run(string content, string userPassword)
         {
             var encoding = Encoding.UTF8;
             KeyGetter.GetKey(userPassword, out Byte[] key, 8, 16, encoding);
